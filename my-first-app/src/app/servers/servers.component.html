@@ -1,3 +1,24 @@
+<label>Server Name(Normal Event Binding)</label>
+<input type="text" class="form-control"
+ (input)="onUpdateServerName($event)"> <!-- $event is used to get the event data and process it accordingly.-->
+ <label>Server Name (2-Way Data Binding)</label>
+<input type="text" class="form-control"
+ [(ngModel)]="addedServerName"> <!-- This is how we should define a 2-way binding-->
+ <p>Added Server is : {{addedServerName}}</p>
+
+<button class="btn btn-primary" [disabled]="!allowNewServer" (click)="onCreateServer()"> 
+<!-- [disabled]="!allowNewServer" is called Porperty Binding defintion. allowNewServer is the property which is defined in server.component.ts and gets changed after 2 secs (from disable to enable).-->
+<!-- (click)="onCreateServer() is called Event Binding Defintion. onCreateServer() is the function that gets invoked on the user click event"-->
+                                                                    
+   Add Server
+</button>
+<p [innerText] = "allowNewServer"></p>
+<p>{{serverCreationStatus}}</p>
+
+
+
+
+
 <app-server></app-server>
 <app-server></app-server>
 <app-server></app-server>

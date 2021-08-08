@@ -35,10 +35,33 @@ import { Component, OnInit } from '@angular/core';
    */
 })
 export class ServersComponent implements OnInit {
+  allowNewServer = false; // A porperty Binding property
+  serverCreationStatus = 'No Servers was created';
+  addedServerName = 'Server-1';
 
-  constructor() { }
+  constructor() { 
+    /**
+     * setTimeOut() is a javaScript function which sets the timeout for a specific operation.
+     * In this case, intially when the page loads, ServersComponent constructor will be initalized.
+     * By default, allowNewServer = false (disabled)
+     * 
+     * But after 2 secs of timeout complete, the allowNewServer property will be true (enabled)
+     */
+    setTimeout(() => { 
+      this.allowNewServer = true;
+    }, 2000);
+  }
 
   ngOnInit(): void {
+  }
+
+  onCreateServer() {
+    this.serverCreationStatus = 'Now, a server is created. The Server Name - ' + this.addedServerName;
+  }
+
+  onUpdateServerName(event: any) {
+    console.log(event);
+    this.addedServerName = event.target.value;
   }
 
 }
