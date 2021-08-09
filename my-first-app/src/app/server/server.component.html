@@ -1,3 +1,13 @@
-<h3>{{'server'}} with ID {{getServerId()}} is {{serverStatus}}</h3>
+<h3 [ngStyle]="{backgroundColor: getColor()}"
+    [ngClass]="{online: serverStatus === 'Online'}">
+    {{'server'}} with ID {{getServerId()}} is {{serverStatus}}</h3>
 <!-- Above defintion within curly braces is known as binding the data with string interpolation.
      With that, display the information from TypeScript to the HTML template-->
+
+<!-- The ngStyle directive is responsible to update the CSS dynamically in Angular application.-->
+<!-- It is very important to understand that, the square brackets in the ngStyle is not related to directive.
+     Here, we are using Property Binding, where the style is getting assigned to the directive as a property.-->
+
+
+<!-- The ngClass directive allows us to dynamically add or remove the CSS class.-->
+

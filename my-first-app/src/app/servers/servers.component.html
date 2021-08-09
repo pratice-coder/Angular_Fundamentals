@@ -15,6 +15,16 @@
 <p [innerText] = "allowNewServer"></p>
 <p>{{serverCreationStatus}}</p>
 
+<!-- Directives are basically used as attribute selector
+     In *ngIf, * is important to have because, ngIf is a structural Directive which means it changes the structure of our DOM.
+     It either adds the element or does not add the element -->
+<!-- If you inspect the below line at developer tools in browser. you will see when the app is loaded there is no paragraph element
+     But, as soon as the ngIf gets evaluated to true then a new element got introduced.-->
+<p *ngIf="serverCreated; else noServer">Server was created, server name is : {{addedServerName}}</p>
+<ng-template #noServer>
+    <p>No Server was created. Copletely blank.</p>
+</ng-template>
+
 
 
 

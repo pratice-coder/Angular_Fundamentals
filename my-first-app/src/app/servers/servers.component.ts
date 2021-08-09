@@ -38,6 +38,7 @@ export class ServersComponent implements OnInit {
   allowNewServer = false; // A porperty Binding property
   serverCreationStatus = 'No Servers was created';
   addedServerName = 'Server-1';
+  serverCreated: boolean = false;
 
   constructor() { 
     /**
@@ -56,6 +57,7 @@ export class ServersComponent implements OnInit {
   }
 
   onCreateServer() {
+    this.serverCreated = true;
     this.serverCreationStatus = 'Now, a server is created. The Server Name - ' + this.addedServerName;
   }
 
